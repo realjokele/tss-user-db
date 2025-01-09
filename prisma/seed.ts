@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 await prisma.user.deleteMany()
 
-Array.from({ length: 1000 }).map(async (_, i) => {
+Array.from({ length: 50 }).map(async (_, i) => {
 	const firstName = faker.person.firstName()
 	const lastName = faker.person.lastName()
 

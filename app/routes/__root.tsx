@@ -89,6 +89,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						Home
 					</Link>{' '}
 					<Link
+						to="/users"
+						activeProps={{
+							className: 'font-bold',
+						}}
+						activeOptions={{ exact: true }}
+					>
+						Users
+					</Link>{' '}
+					<Link
 						// @ts-expect-error
 						to="/this-route-does-not-exist"
 						activeProps={{
