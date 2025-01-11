@@ -10,7 +10,7 @@ This site is built with
 - TanStack Table
 - Prisma
 - React Aria Components
-- Tailwind 4
+- TailwindCss
 - React 19
 
 # Installation
