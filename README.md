@@ -25,4 +25,4 @@ This site is built with
 
 4. `pnpx prisma db seed`
 
-5. `pnpn run dev`
+5. `pnpm run dev`
