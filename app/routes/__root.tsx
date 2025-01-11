@@ -6,11 +6,15 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { Meta, Scripts } from '@tanstack/start'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/app.css?url'
 import { seo } from '~/utils/seo'
+
+const queryClient = new QueryClient()
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -108,9 +112,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 					</Link>
 				</div>
 				<hr />
-				{children}
+				<QueryClientProvider client={queryClient}>
+					{children}
+				</QueryClientProvider>
 				<ScrollRestoration />
-				<TanStackRouterDevtools position="bottom-right" />
+				<TanStackRouterDevtools position="bottom-left" />
+				<ReactQueryDevtools
+					position="bottom"
+					client={queryClient}
+					initialIsOpen={false}
+				/>
+
 				<Scripts />
 			</body>
 		</html>
